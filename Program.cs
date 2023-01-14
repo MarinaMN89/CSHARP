@@ -1,17 +1,27 @@
-﻿//Напишите программу, которая на вход принимает два числа и выдаёт,
-//какое число большее, а какое меньшее.
-//a = 5; b = 7 -> max = 7
-//a = 2 b = 10 -> max = 10
-//a = -9 b = -3 -> max = -3
-Console.WriteLine("Введите число 1:");
-int num1 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите число 2:");
-int num2 = Convert.ToInt32(Console.ReadLine());
-if (num1>num2)
+﻿// Задача 38: Задайте массив вещественных чисел.
+// Найдите разницу между максимальным и минимальным элементов массива.
+// [3 7 22 2 78] -> 76
+double[] array = new double[8];
+for (int i = 0; i < array.Length; i++)
 {
-    Console.Write("max=число 1");
+    array[i] = Math.Round(new Random().NextDouble(), 2);
+
+    Console.Write($"{array[i]} ");
 }
-else
+double max = array[0];
+double min = array[0];
+Console.WriteLine("");
+for (int i = 0; i < array.Length; i++)
 {
-    Console.Write("max=число 2");
+    if (array[i] > max)
+    {
+        max = array[i];
+    }
+    if (array[i] < min)
+    {
+        min = array[i];
+    }
 }
+Console.WriteLine(max);
+Console.WriteLine(min);
+Console.WriteLine($"Разница макс и мин = {Math.Round((max - min), 2)}");
