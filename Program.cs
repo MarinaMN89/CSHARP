@@ -1,44 +1,108 @@
-﻿// Задача 41: Пользователь вводит с клавиатуры M чисел. 
-// Посчитайте, сколько чисел больше 0 ввёл пользователь.
+﻿// Задача 47. Задайте двумерный массив размером m×n, 
+// заполненный случайными вещественными числами.
 
-// 0, 7, 8, -2, -2 -> 2
+// m = 3, n = 4.
+// 0,5 7 -2 -0,2
+// 1 -3,3 8 -9,9
+// 8 7,8 -7,1 9
 
-// 1, -7, 567, 89, 223-> 3
+// Console.WriteLine("Введите число m");
+// int m = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите число n");
+// int n = Convert.ToInt32(Console.ReadLine());
+// double[,] array = new double[m, n];
+// for (int i = 0; i < array.GetLength(0); i++)
+// {
+//     for (int j = 0; j < array.GetLength(0); j++)
+//     {
+//         array[i, j] = Math.Round ((new Random().Next(-50, 50) + new Random().NextDouble()), 1);
+//         Console.Write($"{array[i, j]} ");
+//     }
+//     Console.WriteLine("");
+// }
 
-Console.Write("Введите число: ");
-int M = Convert.ToInt32(Console.ReadLine());
-int[] array = new int[M];
-for (int i = 0; i < array.Length; i++)
+// Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве,
+// и возвращает значение этого элемента или же указание, что такого элемента нет.
+
+// Например, задан массив:
+
+// 1 4 7 2
+
+// 5 9 2 3
+
+// 8 4 2 4
+
+// 17 -> такого числа в массиве нет
+
+// Console.WriteLine("Введите число  m");
+// int m = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите число  n");
+// int n = Convert.ToInt32(Console.ReadLine());
+// int[,] matr = new int[m, n];
+
+// for (int i = 0; i < matr.GetLength(0); i++)
+// {
+//     for (int j = 0; j < matr.GetLength(1); j++)
+//     {
+//         matr[i, j] = new Random().Next(0, 50);
+//         Console.Write($"{matr[i, j]} ");
+//     }
+//     Console.WriteLine("");
+// }
+// Console.WriteLine("Введите  позицию элемента x");
+// int x = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите позицию элемента y");
+// int y = Convert.ToInt32(Console.ReadLine());
+// for (int i = 0; i < matr.GetLength(0); i++)
+// {
+//     for (int j = 0; j < matr.GetLength(1); j++)
+//     {
+//         if (i == x && j == y)
+//         {
+//             Console.WriteLine($"Значение элемента = {matr[i, j]}");
+//         }
+
+//         else 
+//         {
+//             Console.WriteLine("Такого элемента нет");
+//         }
+
+//     }
+// }
+
+// Задача 52. Задайте двумерный массив из целых чисел. 
+// Найдите среднее арифметическое элементов в каждом столбце.
+
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+Console.WriteLine("Введите число  m");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите число  n");
+int n = Convert.ToInt32(Console.ReadLine());
+int[,] matr = new int[m, n];
+
+for (int i = 0; i < matr.GetLength(0); i++)
 {
-    array[i] = new Random().Next(-100, 100);
-    Console.Write($"{array[i]} ");
+    for (int j = 0; j < matr.GetLength(1); j++)
+    {
+        matr[i, j] = new Random().Next(0, 10);
+        Console.Write($"{matr[i, j]} ");
+    }
+    Console.WriteLine("");
 }
 
-System.Console.WriteLine();
-
-int N = 0;
-
-for (int i=0; i<M;i++)
+for (int j = 0; j < matr.GetLength(1); j++)
 {
-    if (array[i]>0)    N = N + 1;
+    double avg = 0;
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        avg = avg + matr[i, j];
+    }
+
+    avg = Math.Round(avg / m, 2);
+    Console.WriteLine($"{avg} ");
 }
-Console.WriteLine(N);
-
-// Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых,
-// заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
-// b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
-
-// System.Console.WriteLine("Введите b1");
-// double b1 = Convert.ToInt32(Console.ReadLine()); 
-// System.Console.WriteLine("Введите k1");
-// double k1 = Convert.ToInt32(Console.ReadLine()); 
-// System.Console.WriteLine("Введите b2");
-// double b2 = Convert.ToInt32(Console.ReadLine()); 
-// System.Console.WriteLine("Введите k2");
-// double k2 = Convert.ToInt32(Console.ReadLine());
-
-// double x = (b2-b1)/(k1-k2);
-// double y = k2*(b2-b1)/(k1-k2) + b2;
-
-// Console.WriteLine($"({x}; {y})");
 
